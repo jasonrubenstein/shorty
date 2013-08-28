@@ -156,8 +156,8 @@ class App(object):
             environ['shorty.http'] = http
         if handler:
             try:
-                message = handler(http, *args, **kwargs)
                 status = http._out_code
+                message = handler(http, *args, **kwargs)
             except Error, err:
                 status = err.status
                 message = err.message
